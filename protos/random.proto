@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option go_package="./";
+
+package protoRand;
+
+service Random{
+  rpc GetRandNum(RandNumRequest) returns (RandNumResponse);
+  rpc GetRandPass(RandPassRequest) returns (RandPassResponse);
+}
+
+message RandNumRequest{
+  int64 Seed = 1;
+  int64 Place = 2;
+}
+
+message RandNumResponse{
+  int64 Num = 1;
+}
+
+message RandPassRequest{
+  int64 Seed = 1;
+  int64 Length = 2;
+}
+
+message RandPassResponse{
+  string Pass = 1;
+}
